@@ -46,9 +46,9 @@ public class ProductDAO {
 
     }
 
-    public void findProductsByCategory(String category) {
+    public void findProductsByCategory(String productCategory) {
         for (Product product : products) {
-            if (product.getCategory().equals(category)) {
+            if (product.getCategory().equals(productCategory)) {
                 System.out.println(
                         "Product ID: " + product.getProductId() +
                                 ", Product Name: " + product.getProductName() +
@@ -72,5 +72,27 @@ public class ProductDAO {
                 );
             }
         }
+    }
+
+    public void findTotalAmountSpent() {
+        double totalAmountSpent = 0;
+        for (Product product : products) {
+            totalAmountSpent += (product.getBuyingPrice() * product.getAvailableQuantity());
+        }
+        System.out.println("Total Amount spent on products is: $" + totalAmountSpent);
+    }
+
+    public void findProfitAmountByCategory(String productCategory) {
+        double totalAmountSpent = 0;
+        double grossProfit = 0;
+        double netProfit = 0;
+        for (Product product : products) {
+            if (product.getCategory().equals(productCategory)) {
+                totalAmountSpent += (product.getBuyingPrice() * product.getAvailableQuantity());
+                grossProfit += (product.getSellingPrice() * product.getAvailableQuantity());
+                netProfit = grossProfit - totalAmountSpent;
+            }
+        }
+        System.out.println("Profit Amount for Category of " + productCategory + " is: $" + netProfit);
     }
 }

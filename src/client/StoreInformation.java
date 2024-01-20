@@ -35,9 +35,9 @@ public class StoreInformation {
     }
 
     public void getProductsByCategory() {
-        System.out.println("Please enter the category you want to search: ");
-        String category = scanner.nextLine();
-        productService.getProductsByCategory(category);
+        System.out.println("Please enter the Product Category you want to search: ");
+        String productCategory = scanner.nextLine();
+        productService.getProductsByCategory(productCategory);
     }
 
     public void getProductByName() {
@@ -51,6 +51,8 @@ public class StoreInformation {
     }
 
     public void getProfitAmountByCategory() {
-        productService.getProfitAmountByCategory();
+        System.out.println("Please enter the Product Category you want to find out about the profit amount");
+        String productCategory = scanner.nextLine();
+        productService.getProfitAmountByCategory(productCategory);
     }
 }

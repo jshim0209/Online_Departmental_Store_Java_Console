@@ -17,9 +17,9 @@ public class ProductService {
         productDAO.findProductById(productId);
     }
 
-    public void getProductsByCategory(String category) {
+    public void getProductsByCategory(String productCategory) {
 
-        productDAO.findProductsByCategory(category);
+        productDAO.findProductsByCategory(productCategory);
     }
 
     public void getProductByName(String productName) {
@@ -28,8 +28,12 @@ public class ProductService {
     }
 
     public void getTotalAmountSpent() {
+
+        productDAO.findTotalAmountSpent();
     }
 
-    public void getProfitAmountByCategory() {
+    public void getProfitAmountByCategory(String productCategory) {
+
+        productDAO.findProfitAmountByCategory(productCategory);
     }
 }
