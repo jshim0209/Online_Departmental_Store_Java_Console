@@ -1,7 +1,5 @@
 package client;
 
-import service.StoreInformation;
-
 import java.util.Scanner;
 
 public class Menu {
@@ -13,6 +11,26 @@ public class Menu {
     public Menu() {
         storeInformation = new StoreInformation();
         scanner = new Scanner(System.in);
+    }
+
+    public void start() {
+        System.out.println("Welcome to our Online Departmental Store Application!");
+        login();
+    }
+
+    public void login() {
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.println("Enter password: ");
+        String password = scanner.nextLine();
+        boolean isAuthenticated = storeInformation.login(username, password);
+        if (!isAuthenticated) {
+            System.out.println("Login failed. Incorrect username or paaword provided");
+            login();
+        } else {
+            System.out.println("Login successful! Welcome, " + username);
+            createMenu();
+        }
     }
 
     public void createMenu() {
