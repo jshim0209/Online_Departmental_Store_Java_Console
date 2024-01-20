@@ -4,7 +4,6 @@ import entity.Product;
 
 public class ProductDAO {
 
-    private ItemDAO itemDAO;
     private Product[] products;
     private Product nikeShoesProduct;
     private Product rlShirtsProduct;
@@ -12,12 +11,11 @@ public class ProductDAO {
     private Product iPhone15Product;
     private Product levisJeansProduct;
     public ProductDAO() {
-        itemDAO = new ItemDAO();
-        nikeShoesProduct = new Product(1, "Nike Shoes", 100, itemDAO.nikeShoes);
-        rlShirtsProduct = new Product(2, "Ralph Lauren Shirts", 300, itemDAO.rlShirts);
-        macBookProduct = new Product(3, "MacBook", 500, itemDAO.macBook);
-        iPhone15Product = new Product(4, "iPhone 15", 300, itemDAO.iPhone15);
-        levisJeansProduct = new Product(5, "Levi's Jeans", 800, itemDAO.levisJeans);
+        nikeShoesProduct = new Product("Nike Shoes", "Shoes", 50.00, 1, "Nike Shoes", 100);
+        rlShirtsProduct = new Product("Ralph Lauren Shirts", "Shirts", 80.00, 2, "Ralph Lauren Shirts", 300);
+        macBookProduct = new Product("MacBook", "Laptops", 800.00, 3, "MacBook", 500);
+        iPhone15Product = new Product("iPhone 15", "Phone", 600.00, 4, "iPhone 15", 300);
+        levisJeansProduct = new Product("Levi's Jeans", "Jeans", 130.00, 5, "Levi's Jeans", 800);
         products = new Product[]{nikeShoesProduct, rlShirtsProduct, macBookProduct, iPhone15Product, levisJeansProduct};
     }
 
@@ -26,7 +24,7 @@ public class ProductDAO {
             System.out.println(
                     "Product ID: " + product.getProductId() +
                             ", Product Name: " + product.getProductName() +
-                            ", Category: " + product.getItem().getCategory() +
+                            ", Category: " + product.getCategory() +
                             ", Available Quantity: " + product.getAvailableQuantity() +
                             ", Price: " + product.getSellingPrice()
             );
@@ -39,7 +37,7 @@ public class ProductDAO {
                 System.out.println(
                         "Product ID: " + product.getProductId() +
                                 ", Product Name: " + product.getProductName() +
-                                ", Category: " + product.getItem().getCategory() +
+                                ", Category: " + product.getCategory() +
                                 ", Available Quantity: " + product.getAvailableQuantity() +
                                 ", Price: " + product.getSellingPrice()
                 );
@@ -50,11 +48,11 @@ public class ProductDAO {
 
     public void findProductsByCategory(String category) {
         for (Product product : products) {
-            if (product.getItem().getCategory().equals(category)) {
+            if (product.getCategory().equals(category)) {
                 System.out.println(
                         "Product ID: " + product.getProductId() +
                                 ", Product Name: " + product.getProductName() +
-                                ", Category: " + product.getItem().getCategory() +
+                                ", Category: " + product.getCategory() +
                                 ", Available Quantity: " + product.getAvailableQuantity() +
                                 ", Price: " + product.getSellingPrice()
                 );
@@ -68,7 +66,7 @@ public class ProductDAO {
                 System.out.println(
                         "Product ID: " + product.getProductId() +
                                 ", Product Name: " + product.getProductName() +
-                                ", Category: " + product.getItem().getCategory() +
+                                ", Category: " + product.getCategory() +
                                 ", Available Quantity: " + product.getAvailableQuantity() +
                                 ", Price: " + product.getSellingPrice()
                 );

@@ -2,23 +2,22 @@ package entity;
 
 import java.util.Objects;
 
-public class Product {
+public class Product extends Item {
 
     private int productId;
     private String productName;
     private double sellingPrice;
     private int availableQuantity;
-    private Item item;
 
     public Product() {
     }
 
-    public Product(int productId, String productName, int availableQuantity, Item item) {
+    public Product(String itemName, String category, double buyingPrice, int productId, String productName, int availableQuantity) {
+        super(itemName, category, buyingPrice);
         this.productId = productId;
         this.productName = productName;
-        this.sellingPrice = item.getBuyingPrice() * 1.5;
+        this.sellingPrice = getBuyingPrice() * 1.5;
         this.availableQuantity = availableQuantity;
-        this.item = item;
     }
 
     public int getProductId() {
@@ -53,25 +52,18 @@ public class Product {
         this.availableQuantity = availableQuantity;
     }
 
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return productId == product.productId && Double.compare(product.sellingPrice, sellingPrice) == 0 && availableQuantity == product.availableQuantity && Objects.equals(productName, product.productName) && Objects.equals(item, product.item);
+        return productId == product.productId && Double.compare(product.sellingPrice, sellingPrice) == 0 && availableQuantity == product.availableQuantity && Objects.equals(productName, product.productName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, productName, sellingPrice, availableQuantity, item);
+        return Objects.hash(productId, productName, sellingPrice, availableQuantity);
     }
 
     @Override
@@ -81,7 +73,6 @@ public class Product {
                 ", productName='" + productName + '\'' +
                 ", sellingPrice=" + sellingPrice +
                 ", availableQuantity=" + availableQuantity +
-                ", item=" + item +
                 '}';
     }
 }
