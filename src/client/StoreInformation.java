@@ -17,8 +17,7 @@ public class StoreInformation {
     }
 
     public boolean login(String username, String password) {
-        userService.isAuthenticated();
-        return false;
+        return userService.isAuthenticated(username, password);
     }
 
     public void getAllProducts() {
