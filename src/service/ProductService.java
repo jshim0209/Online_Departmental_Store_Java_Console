@@ -12,16 +12,19 @@ public class ProductService {
         productDAO.findAllProducts();
     }
 
-    public void getProductById() {
-        productDAO.findProductById();
+    public void getProductById(int productId) {
+
+        productDAO.findProductById(productId);
     }
 
-    public void getProductsByCategory() {
-        productDAO.findProductsByCategory();
+    public void getProductsByCategory(String category) {
+
+        productDAO.findProductsByCategory(category);
     }
 
-    public void getProductByName() {
-        productDAO.findProductByName();
+    public void getProductByName(String productName) {
+
+        productDAO.findProductByName(productName);
     }
 
     public void getTotalAmountSpent() {

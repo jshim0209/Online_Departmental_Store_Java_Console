@@ -6,8 +6,11 @@ Princy is a young girl with the passion to open her own department store. She ha
 #Check List:
 
 • As an store owner, Princy needs to login in her website using username and password
+
 • Validate the credentials and allow to access the options.
+
 • Every item is a product. Use ((buyingprice\*0.5)+buyingprice)to calculate the sellingPrice.
+
 • Options are
 
 1. List the products in the store (productid, product Name, category, Quantity, price )

@@ -33,12 +33,46 @@ public class ProductDAO {
         }
     }
 
-    public void findProductById() {
+    public void findProductById(int productId) {
+        for (Product product : products) {
+            if (product.getProductId() == productId) {
+                System.out.println(
+                        "Product ID: " + product.getProductId() +
+                                ", Product Name: " + product.getProductName() +
+                                ", Category: " + product.getItem().getCategory() +
+                                ", Available Quantity: " + product.getAvailableQuantity() +
+                                ", Price: " + product.getSellingPrice()
+                );
+            }
+        }
+
     }
 
-    public void findProductsByCategory() {
+    public void findProductsByCategory(String category) {
+        for (Product product : products) {
+            if (product.getItem().getCategory().equals(category)) {
+                System.out.println(
+                        "Product ID: " + product.getProductId() +
+                                ", Product Name: " + product.getProductName() +
+                                ", Category: " + product.getItem().getCategory() +
+                                ", Available Quantity: " + product.getAvailableQuantity() +
+                                ", Price: " + product.getSellingPrice()
+                );
+            }
+        }
     }
 
-    public void findProductByName() {
+    public void findProductByName(String productName) {
+        for (Product product : products) {
+            if (product.getProductName().equals(productName)) {
+                System.out.println(
+                        "Product ID: " + product.getProductId() +
+                                ", Product Name: " + product.getProductName() +
+                                ", Category: " + product.getItem().getCategory() +
+                                ", Available Quantity: " + product.getAvailableQuantity() +
+                                ", Price: " + product.getSellingPrice()
+                );
+            }
+        }
     }
 }
