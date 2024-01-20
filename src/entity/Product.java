@@ -8,15 +8,17 @@ public class Product {
     private String productName;
     private double sellingPrice;
     private int availableQuantity;
+    private Item item;
 
     public Product() {
     }
 
-    public Product(int productId, String productName, double sellingPrice, int availableQuantity) {
+    public Product(int productId, String productName, int availableQuantity, Item item) {
         this.productId = productId;
         this.productName = productName;
-        this.sellingPrice = sellingPrice;
+        this.sellingPrice = item.getBuyingPrice() * 1.5;
         this.availableQuantity = availableQuantity;
+        this.item = item;
     }
 
     public int getProductId() {
@@ -51,17 +53,25 @@ public class Product {
         this.availableQuantity = availableQuantity;
     }
 
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return productId == product.productId && Double.compare(product.sellingPrice, sellingPrice) == 0 && availableQuantity == product.availableQuantity && Objects.equals(productName, product.productName);
+        return productId == product.productId && Double.compare(product.sellingPrice, sellingPrice) == 0 && availableQuantity == product.availableQuantity && Objects.equals(productName, product.productName) && Objects.equals(item, product.item);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, productName, sellingPrice, availableQuantity);
+        return Objects.hash(productId, productName, sellingPrice, availableQuantity, item);
     }
 
     @Override
@@ -71,6 +81,7 @@ public class Product {
                 ", productName='" + productName + '\'' +
                 ", sellingPrice=" + sellingPrice +
                 ", availableQuantity=" + availableQuantity +
+                ", item=" + item +
                 '}';
     }
 }

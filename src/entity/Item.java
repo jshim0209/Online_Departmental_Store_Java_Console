@@ -9,6 +9,7 @@ public class Item {
     private double buyingPrice;
 
     public Item() {
+
     }
 
     public Item(String itemName, String category, double buyingPrice) {
